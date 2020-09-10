@@ -1,0 +1,12 @@
+{
+    "name": "dict",
+    "main": "app/index.html",
+    "chromium-args" : "--disk-cache-size=1",
+    "window": {
+        "show": true,
+        "icon": "icon.png",
+        "width": 375,
+        "height": 666,
+        "position": "center"
+    }
+}

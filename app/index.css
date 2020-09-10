@@ -1,0 +1,52 @@
+body
+{
+    background-color: #121212;
+    color: #e2e2e2;
+}
+.form
+{
+    width: 100%;
+}
+
+.form .form-panel
+{
+    display: flex;
+}
+
+.form .form-panel > .item
+{
+    background-color: #121212;
+    color: #e2e2e2;
+}
+
+.form .form-panel > .query
+{
+    flex: 2;
+}
+
+.form .form-panel > .submit
+{
+    flex: 1;
+}
+
+.form .form-panel > .query:focus,
+.form .form-panel > .submit:active
+{
+    background-color: #ffffff;
+    color: #0c0c0c;
+}
+
+.form .form-panel > .query,
+.form .form-panel > .query:focus,
+.form .form-panel > .submit,
+.form .form-panel > .submit:active
+{
+    transition: all 0.5s ease-out;
+}
+
+
+.list .second
+{
+    list-style: none;
+}
+

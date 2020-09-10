@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dictionary</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+    <main id="app">
+        <div class="panel">
+            <form id="search-form" class="search form" v-on:submit="sub">
+                <div class="form-panel">
+                    <input required
+                        id="query" name="query" class="item query"
+                        type="text" autocomplete="off" placeholder="Input word..."
+                        v-model="query"
+                    />
+                    <input type="submit" class="item submit" value="Search word!" />
+                </div>
+            </form>
+        </div>
+        <p v-if="entries.datas.length > 0">Search "<span lang="ko">{{ query }}</span>":</p>
+        <div id="renderer">
+            <p v-if="no_entries">Sorry, no entries.</p>
+            <ul class="list">
+                <li class="first" v-for="(first_item, first_index) in entries.datas">
+                    <span lang="ko">
+                        <span v-html="first_item.expEntry"></span>
+                        <span v-if="first_item.expAliasGeneralAlwaysList.length > 0">
+                            {{ expAlias(first_item.expAliasGeneralAlwaysList, 'originLanguage') }}
+                        </span>
+                    </span>
+                    <ul>
+                        <li class="second" v-for="(second_item, second_index) in first_item.meansCollector">
+                            <ul>
+                                <li class="third" v-for="(third_item, third_index) in second_item.means" v-html="third_item.value"></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <script>window.nw.App.clearCache();</script>
+    <script src="vue.min.js"></script>
+    <script src="index.js" type="module"></script>
+</body>
+</html>
